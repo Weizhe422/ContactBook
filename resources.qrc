@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/add.svg</file>
+        <file>icons/import.svg</file>
+        <file>icons/export.svg</file>
+        <file>icons/exit.svg</file>
+        <file>icons/student.svg</file>
+        <file>icons/class.svg</file>
+        <file>icons/name.svg</file>
+        <file>icons/phone.svg</file>
+        <file>icons/logo.svg</file>
+    </qresource>
+</RCC>

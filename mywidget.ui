@@ -6,203 +6,451 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>900</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MyWidget</string>
+   <string>聯絡簿管理系統</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
-    background-color: #D3D3D3;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, 
+        stop:0 #E3F2FD, stop:0.5 #BBDEFB, stop:1 #90CAF9);
 }</string>
   </property>
+  <widget class="QLabel" name="titleLabel">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>860</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+        stop:0 #1976D2, stop:1 #2196F3);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid #1565C0;
+}</string>
+   </property>
+   <property name="text">
+    <string>📚 聯絡簿管理系統</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignmentFlag::AlignCenter</set>
+   </property>
+  </widget>
   <widget class="QTableWidget" name="tableWidget">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>10</y>
-     <width>521</width>
-     <height>311</height>
+     <x>40</x>
+     <y>110</y>
+     <width>820</width>
+     <height>300</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">QTableWidget {
     background-color: white;
-    color: black;
-    gridline-color: #808080;
+    color: #212121;
+    gridline-color: #E0E0E0;
+    border: 2px solid #2196F3;
+    border-radius: 10px;
+    font-size: 13px;
+    selection-background-color: #2196F3;
+    padding: 5px;
 }
 QTableWidget::item {
     background-color: white;
-    color: black;
+    color: #212121;
+    padding: 8px;
 }
 QTableWidget::item:selected {
-    background-color: #808080;
+    background-color: #2196F3;
     color: white;
 }
+QTableWidget::item:hover {
+    background-color: #E3F2FD;
+}
 QHeaderView::section {
-    background-color: #505050;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #42A5F5, stop:1 #2196F3);
     color: white;
-    padding: 5px;
-    border: 1px solid #808080;
+    padding: 12px;
+    border: none;
+    border-right: 1px solid #1976D2;
+    font-weight: bold;
+    font-size: 14px;
+}
+QHeaderView::section:first {
+    border-top-left-radius: 8px;
+}
+QHeaderView::section:last {
+    border-top-right-radius: 8px;
+    border-right: none;
 }</string>
    </property>
   </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
+  <widget class="QWidget" name="formCard">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>330</y>
-     <width>521</width>
-     <height>211</height>
+     <x>40</x>
+     <y>430</y>
+     <width>820</width>
+     <height>180</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>學號</string>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-    background-color: transparent;
-    color: black;
-    font-weight: bold;
-}</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit">
-        <property name="styleSheet">
-         <string notr="true">QLineEdit {
+   <property name="styleSheet">
+    <string notr="true">QWidget#formCard {
     background-color: white;
-    color: black;
-    border: 1px solid #808080;
-    padding: 3px;
+    border: 2px solid #2196F3;
+    border-radius: 15px;
+}</string>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>780</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="spacing">
+      <number>12</number>
+     </property>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="iconLabel1">
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/icons/student.svg</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>學號：</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    background-color: transparent;
+    color: #1976D2;
+    font-weight: bold;
+    font-size: 14px;
+}</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    background-color: #F5F5F5;
+    color: #212121;
+    border: 2px solid #BDBDBD;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
 }
 QLineEdit:focus {
-    border: 2px solid #505050;
-}</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
-      <item>
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>班級</string>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-    background-color: transparent;
-    color: black;
-    font-weight: bold;
-}</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit_4">
-        <property name="styleSheet">
-         <string notr="true">QLineEdit {
+    border: 2px solid #2196F3;
     background-color: white;
-    color: black;
-    border: 1px solid #808080;
-    padding: 3px;
+}
+QLineEdit:hover {
+    border: 2px solid #42A5F5;
+}</string>
+         </property>
+         <property name="placeholderText">
+          <string>請輸入學號</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="iconLabel2">
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/icons/class.svg</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>班級：</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    background-color: transparent;
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 14px;
+}</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_4">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    background-color: #F5F5F5;
+    color: #212121;
+    border: 2px solid #BDBDBD;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
 }
 QLineEdit:focus {
-    border: 2px solid #505050;
-}</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <item>
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>姓名</string>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-    background-color: transparent;
-    color: black;
-    font-weight: bold;
-}</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit_3">
-        <property name="styleSheet">
-         <string notr="true">QLineEdit {
+    border: 2px solid #4CAF50;
     background-color: white;
-    color: black;
-    border: 1px solid #808080;
-    padding: 3px;
+}
+QLineEdit:hover {
+    border: 2px solid #66BB6A;
+}</string>
+         </property>
+         <property name="placeholderText">
+          <string>請輸入班級</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="iconLabel3">
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/icons/name.svg</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>姓名：</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    background-color: transparent;
+    color: #FF9800;
+    font-weight: bold;
+    font-size: 14px;
+}</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_3">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    background-color: #F5F5F5;
+    color: #212121;
+    border: 2px solid #BDBDBD;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
 }
 QLineEdit:focus {
-    border: 2px solid #505050;
-}</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>電話</string>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLabel {
-    background-color: transparent;
-    color: black;
-    font-weight: bold;
-}</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit_2">
-        <property name="styleSheet">
-         <string notr="true">QLineEdit {
+    border: 2px solid #FF9800;
     background-color: white;
-    color: black;
-    border: 1px solid #808080;
-    padding: 3px;
+}
+QLineEdit:hover {
+    border: 2px solid #FFA726;
+}</string>
+         </property>
+         <property name="placeholderText">
+          <string>請輸入姓名</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <property name="spacing">
+        <number>15</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="iconLabel4">
+         <property name="minimumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>32</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap resource="resources.qrc">:/icons/icons/phone.svg</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>電話：</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLabel {
+    background-color: transparent;
+    color: #9C27B0;
+    font-weight: bold;
+    font-size: 14px;
+}</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="lineEdit_2">
+         <property name="styleSheet">
+          <string notr="true">QLineEdit {
+    background-color: #F5F5F5;
+    color: #212121;
+    border: 2px solid #BDBDBD;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
 }
 QLineEdit:focus {
-    border: 2px solid #505050;
+    border: 2px solid #9C27B0;
+    background-color: white;
+}
+QLineEdit:hover {
+    border: 2px solid #AB47BC;
 }</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
+         </property>
+         <property name="placeholderText">
+          <string>請輸入電話</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QWidget" name="horizontalLayoutWidget_4">
    <property name="geometry">
     <rect>
-     <x>160</x>
-     <y>529</y>
-     <width>521</width>
-     <height>81</height>
+     <x>40</x>
+     <y>625</y>
+     <width>820</width>
+     <height>60</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <property name="spacing">
+     <number>20</number>
+    </property>
     <item>
      <spacer name="horizontalSpacer_3">
       <property name="orientation">
@@ -218,127 +466,172 @@ QLineEdit:focus {
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">
+      <property name="minimumSize">
+       <size>
+        <width>140</width>
+        <height>50</height>
+       </size>
+      </property>
       <property name="text">
-       <string>新增</string>
+       <string>  新增</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/add.svg</normaloff>:/icons/icons/add.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: #505050;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #4CAF50, stop:1 #45a049);
     color: white;
-    border: 1px solid #808080;
-    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
     font-weight: bold;
+    font-size: 14px;
 }
 QPushButton:hover {
-    background-color: #707070;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #66BB6A, stop:1 #4CAF50);
 }
 QPushButton:pressed {
-    background-color: #303030;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #388E3C, stop:1 #2E7D32);
 }</string>
       </property>
      </widget>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_4">
+      <property name="minimumSize">
+       <size>
+        <width>140</width>
+        <height>50</height>
+       </size>
+      </property>
       <property name="text">
-       <string>匯入</string>
+       <string>  匯入</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/import.svg</normaloff>:/icons/icons/import.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: #505050;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #2196F3, stop:1 #1976D2);
     color: white;
-    border: 1px solid #808080;
-    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
     font-weight: bold;
+    font-size: 14px;
 }
 QPushButton:hover {
-    background-color: #707070;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #42A5F5, stop:1 #2196F3);
 }
 QPushButton:pressed {
-    background-color: #303030;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #1565C0, stop:1 #0D47A1);
 }</string>
       </property>
      </widget>
-    </item>
-    <item>
-     <spacer name="horizontalSpacer_5">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_2">
+      <property name="minimumSize">
+       <size>
+        <width>140</width>
+        <height>50</height>
+       </size>
+      </property>
       <property name="text">
-       <string>匯出</string>
+       <string>  匯出</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/export.svg</normaloff>:/icons/icons/export.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: #505050;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #FF9800, stop:1 #F57C00);
     color: white;
-    border: 1px solid #808080;
-    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
     font-weight: bold;
+    font-size: 14px;
 }
 QPushButton:hover {
-    background-color: #707070;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #FFA726, stop:1 #FF9800);
 }
 QPushButton:pressed {
-    background-color: #303030;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #EF6C00, stop:1 #E65100);
 }</string>
       </property>
      </widget>
     </item>
     <item>
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="minimumSize">
        <size>
-        <width>40</width>
-        <height>20</height>
+        <width>140</width>
+        <height>50</height>
        </size>
       </property>
-     </spacer>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_3">
       <property name="text">
-       <string>結束</string>
+       <string>  結束</string>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/exit.svg</normaloff>:/icons/icons/exit.svg</iconset>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>24</width>
+        <height>24</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton {
-    background-color: #505050;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #F44336, stop:1 #D32F2F);
     color: white;
-    border: 1px solid #808080;
-    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
     font-weight: bold;
+    font-size: 14px;
 }
 QPushButton:hover {
-    background-color: #707070;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #EF5350, stop:1 #F44336);
 }
 QPushButton:pressed {
-    background-color: #303030;
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+        stop:0 #C62828, stop:1 #B71C1C);
 }</string>
       </property>
      </widget>
@@ -359,6 +652,8 @@ QPushButton:pressed {
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
